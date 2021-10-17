@@ -197,10 +197,12 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 								onChange={onChangeHandeler}
 								required
 							>
-								<option value="">Choose...</option>
-								{countryList.map((country) => {
+								<option key={-1} value="">
+									Choose...
+								</option>
+								{countryList.map((country, index) => {
 									return (
-										<option value={country}>
+										<option key={index} value={country}>
 											{country}
 										</option>
 									);
@@ -243,10 +245,15 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 									onChange={onChangeHandeler}
 									required
 								>
-									<option value="">Choose...</option>
-									{countryCodeList.map((country) => {
+									<option key={-1} value="">
+										Choose...
+									</option>
+									{countryCodeList.map((country, index) => {
 										return (
-											<option value={country.code}>
+											<option
+												key={index}
+												value={country.code}
+											>
 												{country.name}
 											</option>
 										);
@@ -291,10 +298,13 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 									value={user.phoneCountryCode}
 									onChange={onChangeHandeler}
 								>
-									<option>Choose...</option>
-									{countryCodeList.map((country) => {
+									<option key={-1}>Choose...</option>
+									{countryCodeList.map((country, index) => {
 										return (
-											<option value={country.code}>
+											<option
+												key={index}
+												value={country.code}
+											>
 												{country.name}
 											</option>
 										);
