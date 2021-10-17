@@ -14,7 +14,7 @@ import {
 	CToastBody,
 	CToastHeader,
 	CToaster,
-    CSpinner
+	CSpinner,
 } from "@coreui/react";
 import countryList from "../../common/countryList";
 import countryCodeList from "../../common/countryCodeList";
@@ -317,6 +317,11 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 									value={user.phoneNumber}
 									onChange={onChangeHandeler}
 								/>
+								{user.errors.phoneNumber && (
+									<CFormFeedback className="text-danger">
+										{user.errors.phoneNumber}
+									</CFormFeedback>
+								)}
 							</CCol>
 						</CRow>
 
@@ -325,7 +330,11 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 								{user.loading ? (
 									<CSpinner color="primary" />
 								) : (
-									<CButton type="submit" color="primary" className="w-100">
+									<CButton
+										type="submit"
+										color="primary"
+										className="w-100"
+									>
 										Register
 									</CButton>
 								)}

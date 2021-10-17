@@ -68,6 +68,7 @@ class Register extends Component {
 						: "";
 				break;
 			case "userName":
+                this.setState({error:""})
 				errors.userName = validateUserName(value)
 					? value.length < 4
 						? "Username must be at least 4 characters long!"
