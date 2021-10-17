@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
 	CContainer,
 	CRow,
@@ -18,7 +18,6 @@ import {
 } from "@coreui/react";
 import countryList from "../../common/countryList";
 import countryCodeList from "../../common/countryCodeList";
-import { useEffect } from "react/cjs/react.development";
 
 function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 	const [toast, addToast] = useState(0);
