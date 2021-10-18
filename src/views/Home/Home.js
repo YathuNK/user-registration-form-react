@@ -10,7 +10,7 @@ function Home() {
 				objectFit: "cover",
 				overflow: "hidden",
                 width:"100%",
-                height:"92vh",
+                height:"calc(100vh - 56px)",
                 objectPosition: "38% 30%"
 			}}
 			fluid
