@@ -1,6 +1,7 @@
 import { Component } from "react";
 import LoginPage from "./LoginPage";
 
+// Login class Component
 class Login extends Component {
 	constructor(props) {
 		super(props);
@@ -11,11 +12,14 @@ class Login extends Component {
 		};
 	}
 
+    // handler user inputs
 	onChangeHandler = (event) => {
 		const { name, value } = event.target;
 		this.setState({ [name]: value });
 	};
 
+    // handle submit
+    // request to api and handle login functionalities
 	submitHandler = (event) => {
 		event.preventDefault();
 		if (this.state.userName && this.state.password) {

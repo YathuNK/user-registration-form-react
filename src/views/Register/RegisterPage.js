@@ -19,8 +19,12 @@ import {
 import countryList from "../../common/countryList";
 import countryCodeList from "../../common/countryCodeList";
 
+// return actual ui of register page
 function RegisterPage({ user, onChangeHandeler, submitHandler }) {
+	// set toast for displaying toast in display
 	const [toast, addToast] = useState(0);
+
+	// toast for show successful user registration message
 	const exampleToast = (
 		<CToast title="CoreUI for React.js">
 			<CToastHeader close>
@@ -41,6 +45,7 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 		</CToast>
 	);
 
+	// show toast when user.showToast is true
 	useEffect(() => {
 		if (user.showToast) {
 			addToast(exampleToast);
@@ -63,6 +68,8 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 						>
 							<h2>Register</h2>
 						</CHeader>
+
+						{/* firstName lable, input field and error message */}
 						<CCol md={6}>
 							<CFormLabel htmlFor="firstName">
 								First Name
@@ -81,6 +88,8 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 								</CFormFeedback>
 							)}
 						</CCol>
+
+						{/* lastName lable, input field and error message */}
 						<CCol md={6}>
 							<CFormLabel htmlFor="lastName">
 								Last Name
@@ -99,6 +108,8 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 								</CFormFeedback>
 							)}
 						</CCol>
+
+						{/* username lable, input field and error message */}
 						<CCol md={6}>
 							<CFormLabel htmlFor="userName">
 								User Name
@@ -117,6 +128,8 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 								</CFormFeedback>
 							)}
 						</CCol>
+
+						{/* email lable, input field and error message */}
 						<CCol md={6}>
 							<CFormLabel htmlFor="email">Email</CFormLabel>
 							<CFormInput
@@ -134,6 +147,8 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 								</CFormFeedback>
 							)}
 						</CCol>
+
+						{/* password lable, input field and error message */}
 						<CCol md={6}>
 							<CFormLabel htmlFor="password">Password</CFormLabel>
 							<CFormInput
@@ -151,6 +166,8 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 								</CFormFeedback>
 							)}
 						</CCol>
+
+						{/* confirm password lable, input field and error message */}
 						<CCol md={6}>
 							<CFormLabel htmlFor="confirmPassword">
 								Confirm Password
@@ -170,6 +187,8 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 								</CFormFeedback>
 							)}
 						</CCol>
+
+						{/* date of birth lable, input field and error message */}
 						<CCol md={6}>
 							<CFormLabel htmlFor="dob">Date of Birth</CFormLabel>
 							<CFormInput
@@ -187,6 +206,8 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 								</CFormFeedback>
 							)}
 						</CCol>
+
+						{/* country lable and option */}
 						<CCol md={6}>
 							<CFormLabel htmlFor="country">Country</CFormLabel>
 							<CFormSelect
@@ -208,12 +229,9 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 									);
 								})}
 							</CFormSelect>
-							{user.errors.country && (
-								<CFormFeedback className="text-danger">
-									{user.errors.country}
-								</CFormFeedback>
-							)}
 						</CCol>
+
+						{/* state lable, input field and error message */}
 						<CCol md={6}>
 							<CFormLabel htmlFor="state">State</CFormLabel>
 							<CFormInput
@@ -231,6 +249,7 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 							)}
 						</CCol>
 
+						{/* mobile number lable, input field and error message */}
 						<CRow className="mt-4">
 							<CCol md={2} className="m-1">
 								<CFormLabel htmlFor="mobileNumber">
@@ -285,6 +304,7 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 							</CCol>
 						</CRow>
 
+						{/* phone number lable, input field and error message */}
 						<CRow className="mt-3">
 							<CCol md={2} className="m-1">
 								<CFormLabel htmlFor="phoneNumber">
@@ -335,6 +355,7 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 							</CCol>
 						</CRow>
 
+						{/* submit button and error message */}
 						<CRow className="mt-4">
 							<div className="d-grid gap-2 col-6 mx-auto d-flex justify-content-center">
 								{user.loading ? (

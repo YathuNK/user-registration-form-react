@@ -10,6 +10,7 @@ import {
 	CImage,
 } from "@coreui/react";
 
+// return actual ui of profile page
 function ProfilePage({ user }) {
 	return (
 		<>

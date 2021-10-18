@@ -10,14 +10,18 @@ import {
 } from "@coreui/react";
 import { Link } from "react-router-dom";
 
+// Navbar component
 function Navbar(props) {
+    // check localstorage for token
 	let [token, setToken] = useState(localStorage.getItem("token"));
 	const [visible, setVisible] = useState(false);
 
+    // logout function 
 	const logoutHandler = () => {
 		localStorage.clear();
 		window.location.reload(false);
 	};
+
 	return (
 		<CNavbar expand="lg" colorScheme="dark" className="bg-primary">
 			<CContainer fluid>
@@ -41,6 +45,8 @@ function Navbar(props) {
 								Home
 							</Link>
 						</CNavItem>
+                        
+                        {/* render correct navigations based on whether user loggedin or not */}
 						{token ? (
 							<>
 								<CNavItem className="m-2">

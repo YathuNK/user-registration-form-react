@@ -11,6 +11,7 @@ import {
 	CHeader
 } from "@coreui/react";
 
+// return actual ui of login page
 function LoginPage({ user, onChangeHandler, submitHandler }) {
 	return (
 		<CContainer style={{marginTop:"5rem"}}>
