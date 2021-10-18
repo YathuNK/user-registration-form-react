@@ -199,6 +199,8 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 								value={user.dob}
 								onChange={onChangeHandeler}
 								required
+                                min='1910-01-01'
+                                max='2010-12-31'
 							/>
 							{user.errors.dob && (
 								<CFormFeedback className="text-danger">
@@ -357,7 +359,11 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 
 						{/* submit button and error message */}
 						<CRow className="mt-4">
-							<div className="d-grid gap-2 col-6 mx-auto d-flex justify-content-center">
+							<CCol md={3} className="m-1"></CCol>
+							<CCol
+								md={6}
+								className="m-1 mb-0 d-flex justify-content-center"
+							>
 								{user.loading ? (
 									<CSpinner color="primary" />
 								) : (
@@ -369,13 +375,13 @@ function RegisterPage({ user, onChangeHandeler, submitHandler }) {
 										Register
 									</CButton>
 								)}
-								{user.error && (
-									<CFormFeedback className="text-danger">
-										{user.error}
-									</CFormFeedback>
-								)}
-							</div>
+							</CCol>
 						</CRow>
+						{user.error && (
+							<CFormFeedback className="text-danger mt-0 d-flex justify-content-center">
+								{user.error}
+							</CFormFeedback>
+						)}
 					</CForm>
 				</CCol>
 			</CRow>

@@ -8,14 +8,15 @@ import {
 	CFormInput,
 	CFormFeedback,
 	CButton,
-	CHeader
+	CHeader,
+	CSpinner,
 } from "@coreui/react";
 
 // return actual ui of login page
 function LoginPage({ user, onChangeHandler, submitHandler }) {
 	return (
-		<CContainer style={{marginTop:"5rem"}}>
-			<CRow >
+		<CContainer style={{ marginTop: "5rem" }}>
+			<CRow>
 				<CCol lg={3}></CCol>
 				<CCol lg={6}>
 					<CForm
@@ -43,9 +44,7 @@ function LoginPage({ user, onChangeHandler, submitHandler }) {
 							/>
 						</CCol>
 						<CCol md={12}>
-							<CFormLabel htmlFor="lastName">
-								Password
-							</CFormLabel>
+							<CFormLabel htmlFor="lastName">Password</CFormLabel>
 							<CFormInput
 								type="password"
 								id="password"
@@ -58,17 +57,29 @@ function LoginPage({ user, onChangeHandler, submitHandler }) {
 						</CCol>
 
 						<CRow className="mt-4">
-							<div className="d-grid gap-2 col-6 mx-auto">
-								<CButton type="submit" color="primary">
-									Login
-								</CButton>
-								{user.error && (
-									<CFormFeedback className="text-danger">
-										{user.error}
-									</CFormFeedback>
+							<CCol md={3} className="m-1"></CCol>
+							<CCol
+								md={6}
+								className="m-1 mb-0 d-flex justify-content-center"
+							>
+								{user.loading ? (
+									<CSpinner color="primary" />
+								) : (
+									<CButton
+										type="submit"
+										color="primary"
+										className="w-100"
+									>
+										Login
+									</CButton>
 								)}
-							</div>
+							</CCol>
 						</CRow>
+						{user.error && (
+							<CFormFeedback className="text-danger mt-0 d-flex justify-content-center">
+								{user.error}
+							</CFormFeedback>
+						)}
 					</CForm>
 				</CCol>
 			</CRow>

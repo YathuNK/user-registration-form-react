@@ -9,6 +9,7 @@ class Login extends Component {
 			userName: "",
 			password: "",
 			error: "",
+            loading: false,
 		};
 	}
 
@@ -23,6 +24,7 @@ class Login extends Component {
 	submitHandler = (event) => {
 		event.preventDefault();
 		if (this.state.userName && this.state.password) {
+            this.setState({ loading: true });
 			let user = {
 				userName: this.state.userName,
 				password: this.state.password,
@@ -45,13 +47,16 @@ class Login extends Component {
 				.then((data) => {
 					console.log(data);
 					if (data.status && data.status === "success") {
+                        this.setState({ loading: false });
                         localStorage.setItem('token', data.data.token);
 						window.location.reload(false);
 					} else if (data.error) {
+                        this.setState({ loading: false });
 						this.setState({ error: data.error });
 					}
 				})
 				.catch((err) => {
+                    this.setState({ loading: false });
 					console.log(err);
 					alert(err);
 				});
