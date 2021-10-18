@@ -84,7 +84,7 @@ function ProfilePage({ user }) {
 										</CFormLabel>
 									</CCol>
 									<CCol xs="8" md="6">
-										<CFormLabel>{user.dob}</CFormLabel>
+										<CFormLabel>{user.dob.split("T")[0]}</CFormLabel>
 									</CCol>
 								</CRow>
 								<CRow>
